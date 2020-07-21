@@ -1,39 +1,33 @@
 package DataStructures;
 
-public class LinearSearch 
-{
-	//Logic:
-	//Start Traversing from Leftmost Element of array[] and One by One
-	//Compare X value with each element of array[].
-	
-	//If X value matches with an element, it will return Index.
-	//If X value does not match with any element, it will return -1.
-	
-	//Time Complexity of this program is O(n).
-	public static int linearSearch(int array[], int x)
-	{
-		int number = array.length;
-		for(int i=0; i<number; i++)
-		{
-			if(array[i] == x)
+public class LinearSearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// System.out.println("Found the key at index "+LinearserachAlgo(new
+		// int[]{44,95,67,88,78,17},80));
+		System.out.println(
+				"Found the key at index " + RecursiveLinearserach(new int[] { 44, 95, 67, 88, 78, 17 }, 78, 0));
+
+	}
+
+	public static int LinearserachAlgo(int[] a, int key) {
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] == key) {
 				return i;
+			}
 		}
 		return -1;
 	}
-	
-	public static void main(String[] args) 
-	{
-		int array[] = {12, 45, 10, 98, 45};
-		int x = 98;
-		
-		int result = linearSearch(array, x);
-		if(result == -1)
-		{
-			System.out.println("Element is not Present in Array : " +result);
-		}
-		else
-		{
-			System.out.println("Element is Present at Index : " +result);
+
+	public static int RecursiveLinearserach(int[] a, int key, int i) {
+		if (i >= a.length) {
+			return -1;
+		} else if (a[i] == key) {
+			return i;
+		} else {
+			return RecursiveLinearserach(a, key, i + 1);
 		}
 	}
+
 }
